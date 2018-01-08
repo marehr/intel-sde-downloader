@@ -1,0 +1,10 @@
+language: python
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+  - "nightly"
+script:
+  - python ./intel-sde-downloader.py sde-external-8.12.0-2017-10-23-lin.tar.bz2
+  - echo "6d93663f98a34296c11cf2779756dda15e33ddd13b098a327642c654df0ab9a7  sde-external-8.12.0-2017-10-23-lin.tar.bz2" | sha256sum -c -
