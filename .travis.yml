@@ -9,5 +9,13 @@ python:
   - "3.6"
   - "nightly"
 script:
-  - python ./intel-sde-downloader.py sde-external-8.16.0-2018-01-30-lin.tar.bz2
-  - echo "f1d876e8b8f09df10207c654717bfbf91d00f24cfabf6021202222ab1da04f03  sde-external-8.16.0-2018-01-30-lin.tar.bz2" | sha256sum -c -
+  - |
+    if test linux = "${TRAVIS_OS_NAME}"; then
+      python ./intel-sde-downloader.py sde-external-8.16.0-2018-01-30-lin.tar.bz2
+      echo "f1d876e8b8f09df10207c654717bfbf91d00f24cfabf6021202222ab1da04f03  sde-external-8.16.0-2018-01-30-lin.tar.bz2" | sha256sum -c -
+    fi
+  - |
+    if test osx = "${TRAVIS_OS_NAME}"; then
+      python ./intel-sde-downloader.py sde-external-8.16.0-2018-01-30-mac.tar.bz2
+      echo "516e4552ba016d1cfc6772557a4511b796ceb63b3a21abc6be4cab383d8ae624  sde-external-8.16.0-2018-01-30-mac.tar.bz2" | sha256sum -c -
+    fi
