@@ -18,5 +18,5 @@ install:
 build: off
 
 test_script:
-  - "%PYTHON%\\python.exe intel-sde-downloader.py sde-external-8.12.0-2017-10-23-win.tar.bz2"
-  - printf "5f6af9e72d0e2a8ca17487cb4a8256e5fd3bdf9632517bc52b52afea2579905b *sde-external-8.12.0-2017-10-23-win.tar.bz2" | sha256sum -c -
+  - "%PYTHON%\\python.exe intel-sde-downloader.py sde-external-8.16.0-2018-01-30-win.tar.bz2"
+  - printf "5c7ef8c89114dfae80acff17ca4b20d186b81d5a9e7be4cae8c079ce45f15c0a *sde-external-8.16.0-2018-01-30-win.tar.bz2" | sha256sum -c -
