@@ -24,7 +24,7 @@ form.set_checkbox({'accept_license': 1})
 browser.submit_selected()
 
 # Collect results
-for link in browser.get_current_page().select('a[href$=.tar.bz2]'):
+for link in browser.get_current_page().select('a[href$=".tar.bz2"]'):
     if ".tar.bz2" not in link.text:
         continue
 
