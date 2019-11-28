@@ -1,9 +1,12 @@
+# https://docs.travis-ci.com/user/languages/python/#python-versions
+
 language: python
 python:
   - "2.7"
-  - "3.4"
   - "3.5"
   - "3.6"
+  - "3.7"
+  - "3.8"
   - "nightly"
 script:
   - python ./intel-sde-downloader.py sde-external-8.35.0-2019-03-11-lin.tar.bz2
