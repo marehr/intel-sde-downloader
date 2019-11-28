@@ -2,7 +2,7 @@ Intel SDE Downloader
 -------------
 
 [![Build Status](https://travis-ci.org/marehr/intel-sde-downloader.svg?branch=master)](https://travis-ci.org/marehr/intel-sde-downloader)
-![Python Versions](https://img.shields.io/badge/python-2.7%2C%203.4%2C%203.5%2C%203.6-blue.svg)
+![Python Versions](https://img.shields.io/badge/python-2.7%2C%203.5%2C%203.6%2C%203.7%2C%203.8-blue.svg)
 
 This tool will automatically download a version of [Intel SDE](https://software.intel.com/en-us/articles/intel-software-development-emulator/) from its [Download-Site](https://software.intel.com/protected-download/267266/144917).
 
