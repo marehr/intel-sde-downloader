@@ -9,5 +9,5 @@ python:
   - "3.8"
   - "nightly"
 script:
-  - python ./intel-sde-downloader.py sde-external-8.35.0-2019-03-11-lin.tar.bz2
-  - echo "72dc09a0d44965336ebe50e187b65728a7e63f99a29d0514eb0feb343ba41fdf  sde-external-8.35.0-2019-03-11-lin.tar.bz2" | sha256sum -c -
+  - python ./intel-sde-downloader.py sde-external-8.49.0-2020-03-17-lin.tar.bz2
+  - echo "ed426d46f5b74a803c740499b8166da32b58d20259146ee05a9987091f94d8e0  sde-external-8.49.0-2020-03-17-lin.tar.bz2" | sha256sum -c -
