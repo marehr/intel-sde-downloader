@@ -15,20 +15,22 @@ download_filename = download_filename.strip("intel-http-accept://")
 
 # Connect to protected Intel Download Page
 browser = mechanicalsoup.StatefulBrowser()
-browser.open("https://software.intel.com/protected-download/267266/144917")
+browser.open("https://software.intel.com/content/www/us/en/develop/articles/pre-release-license-agreement-for-intel-software-development-emulator-accept-end-user-license-agreement-and-download.html")
 
-# Fill-in the search form
-print("Accept license")
-form = browser.select_form('#intel-licensed-dls-step-1')
-form.set_checkbox({'accept_license': 1})
-browser.submit_selected()
+# # Fill-in the search form
+# print("Accept license")
+# form = browser.select_form('#intel-licensed-dls-step-1')
+# form.set_checkbox({'accept_license': 1})
+# browser.submit_selected()
+
+download_link_attribute = "data-id-url"
 
 # Collect results
-for link in browser.get_current_page().select('a[href$=".tar.bz2"]'):
+for link in browser.get_current_page().select('a[' + download_link_attribute + '$=".tar.bz2"]'):
     if ".tar.bz2" not in link.text:
         continue
 
-    url = urlparse(link.attrs['href'])
+    url = urlparse(link.attrs[download_link_attribute])
     filename = os.path.basename(url.path)
 
     results[filename] = link
@@ -36,13 +38,12 @@ for link in browser.get_current_page().select('a[href$=".tar.bz2"]'):
 # Download file
 if download_filename in results:
     link = results[download_filename]
-    url = link.attrs['href']
+    url = link.attrs[download_link_attribute]
+    link['href'] = url # override URL (URL is in `data-id-url`)
 
     print("Attempt to download", url)
 
-    response = browser.follow_link(link)
-    with open(download_filename, 'wb') as f:
-      f.write(response.content)
+    browser.download_link(link, download_filename)
 
     print("Download written to", download_filename)
 
