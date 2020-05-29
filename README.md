@@ -4,7 +4,26 @@ Intel SDE Downloader
 [![Build Status](https://travis-ci.org/marehr/intel-sde-downloader.svg?branch=master)](https://travis-ci.org/marehr/intel-sde-downloader)
 ![Python Versions](https://img.shields.io/badge/python-2.7%2C%203.5%2C%203.6%2C%203.7%2C%203.8-blue.svg)
 
-This tool will automatically download a version of [Intel SDE](https://software.intel.com/en-us/articles/intel-software-development-emulator/) from its [Download-Site](https://software.intel.com/protected-download/267266/144917).
+Direct downloads as of 2020-05-12
+---------
+
+As of 2020-05-12 Intel has changed their website and they changed their way how to handle the license accepting.
+
+Before they required you to accept the license of Intel SDE on a separate page that created a cookie which allowed you
+to download a Intel SDE version. So even if you knew the URL where to download Intel SDE they required a "manual" accept for each download.
+
+Now they do it via javascript. This means that once you accepted the license in the browser and you know the URL you can
+always download from the same URL without accepting the license a second time.
+
+This makes the purpose of this tool obsolete, because you can simply use wget now. I will still update the tool as a
+simple mean to acquire Intel SDE. That means if the download location changes you still only need to provide the Intel
+SDE version (i.e. `python ./intel-sde-downloader.py sde-external-8.50.0-2020-03-26-lin.tar.bz2`) and it will download
+the right executable.
+
+What does this tool do?
+---------
+
+This tool will automatically download a version of [Intel SDE](https://software.intel.com/en-us/articles/intel-software-development-emulator/) from its [Download-Site](https://software.intel.com/content/www/us/en/develop/articles/pre-release-license-agreement-for-intel-software-development-emulator-accept-end-user-license-agreement-and-download.html).
 
 A normal `wget` does not work, because the url of the download file is protected by a cookie-depending user-agreement.
 This tool will auto-accept the "What If Pre-Release License Agreement" (cited below) and downloads the sde tarball.
