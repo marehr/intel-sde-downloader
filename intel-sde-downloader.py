@@ -23,7 +23,7 @@ browser.open("https://software.intel.com/content/www/us/en/develop/articles/pre-
 # form.set_checkbox({'accept_license': 1})
 # browser.submit_selected()
 
-download_link_attribute = "data-id-url"
+download_link_attribute = "href" # "data-id-url"
 
 # Collect results
 for link in browser.get_current_page().select('a[' + download_link_attribute + '$=".tar.bz2"]'):
